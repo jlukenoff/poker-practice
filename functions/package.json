@@ -1,0 +1,50 @@
+{
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc && webpack --config webpack.config.js",
+    "dev:start": "firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "dev:build": "webpack --config webpack.config.js -w",
+    "dev:compile": "tsc -w"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "apollo-boost": "^0.4.7",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "firebase-admin": "^8.11.0",
+    "firebase-functions": "^3.6.0",
+    "gql-tag": "^1.0.1",
+    "graphql": "^15.0.0",
+    "gsap": "^3.2.6",
+    "vue": "^2.6.11",
+    "vue-apollo": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@types/graphql": "^14.5.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "eslint": "^5.12.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "firebase-functions-test": "^0.2.0",
+    "node-sass": "^4.14.0",
+    "sass-loader": "^8.0.2",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
+    "vue-loader": "^15.9.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "private": true
+}
