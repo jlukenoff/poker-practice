@@ -1,15 +1,14 @@
-import * as functions from "firebase-functions";
-import * as express from "express";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const functions = require("firebase-functions");
+const express = require("express");
 // import * as graphqlHTTP from "express-graphql";
 // import { buildSchema } from "graphql";
-import * as admin from "firebase-admin";
+const admin = require("firebase-admin");
 // import * as app from "../client/main.js";
 // import Roomba from "./Roomba";
-
 const app = express();
-
 admin.initializeApp();
-
 // const schema = buildSchema(`
 //   type RoombaResult {
 //     resultString: String
@@ -22,23 +21,18 @@ admin.initializeApp();
 //     originalMatrix: String
 //     directions: String
 //   }
-
 //   type Query {
 //     traversalResults(input: String): RoombaResult
 //   }
 // `);
-
 // const root = {
 //   traversalResults({ input }: { input: string }) {
 //     const roomba = new Roomba();
 //     roomba.ingestInput(input);
-
 //     return roomba.traverse();
 //   },
 // };
-
 app.use(express.static("public"));
-
 // app.use(
 //   "/graphql",
 //   graphqlHTTP({
@@ -47,5 +41,5 @@ app.use(express.static("public"));
 //     graphiql: true,
 //   })
 // );
-
 exports.app = functions.https.onRequest(app);
+//# sourceMappingURL=index.js.map

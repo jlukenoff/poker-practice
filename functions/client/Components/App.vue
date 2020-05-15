@@ -1,89 +1,22 @@
 <template>
   <div id="app">
-    <div class="header"><h2>Roomba App</h2></div>
-    <form>
-      <label for="inputUpload">Upload an input file</label>
-      <input type="file" id="inputUpload" @change="setMatrix($event)" />
-    </form>
-    <div class="subtitle">
-      or use default room.
+    <div class="root container">
+      <h2>App here</h2>
+      <Child />
     </div>
-    <button type="button" @click="traverseMatrix" class="submit-btn">
-      Traverse Room
-    </button>
-    <Room
-      v-show="matrixProps.resultString"
-      v-bind="matrixProps"
-      ref="roomRef"
-    />
   </div>
 </template>
 
 <script>
-import Room from "./Room";
+import Child from "./Child";
 export default {
   name: "App",
   components: {
-    Room,
+    Child,
   },
-  mounted() {
-    this.traverseMatrix();
-  },
-  methods: {
-    async setMatrix(e) {
-      e.preventDefault();
-      const text = await e.target.files[0].text();
-      this.inputString = text.replace(/\n/g, "\\n");
-    },
-    traverseMatrix() {
-      return fetch("graphql", {
-        method: "POST",
-        body: JSON.stringify({
-          query: `{
-          traversalResults(input:"${this.inputString}") {
-            dirtCount
-            resultString
-            dirtLocations
-            finalPositionRaw
-            initialPositionRaw
-            finalMatrix
-            originalMatrix
-            traversalSteps
-            directions
-          }
-        }`,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((c) => c.json())
-        .then(({ data: { traversalResults } }) => {
-          console.log(
-            "Result:\n",
-            traversalResults.resultString,
-            "\n-----------"
-          );
-          this.matrixProps = Object.assign({}, traversalResults);
-        })
-        .catch(console.error);
-    },
-  },
+  methods: {},
   data() {
-    return {
-      matrixProps: {
-        dirtCount: 0,
-        resultString: "",
-        dirtLocations: [],
-        finalPositionRaw: [0, 0],
-        initialPositionRaw: [0, 0],
-        finalMatrix: "[]",
-        originalMatrix: "[]",
-        traversalSteps: [],
-        directions: "",
-      },
-      inputString: "5 5\\n1 2\\n1 0\\n2 2\\n2 3\\nNNESEESWNWW",
-    };
+    return {};
   },
 };
 </script>
@@ -97,30 +30,15 @@ export default {
   align-items: center;
   text-align: center;
   min-height: 300px;
+  color: #333;
 
-  button {
-    -webkit-appearance: none;
-    display: block;
-    background: none;
-    width: 15em;
-    padding: 1em 0;
-    border-radius: 2.5px;
+  .container {
+    border: 1px dotted red;
+    margin: 20px auto;
   }
-
-  .submit-btn {
-    margin-top: 10px;
-  }
-
-  form {
-    display: flex;
-    flex-flow: column;
-    max-width: 400px;
-    padding: 20px;
-    margin: auto;
-  }
-
-  .subtitle {
-    text-align: center;
+  .root {
+    min-width: 600px;
+    min-height: 600px;
   }
 }
 </style>
