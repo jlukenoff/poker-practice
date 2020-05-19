@@ -1,10 +1,7 @@
-import Vue from "vue";
-import App from "./Components/App";
+import { createApp } from "./app";
 
-Vue.config.productionTip = false;
+const { app } = createApp();
 
-const app = new Vue({ render: (h) => h(App) });
-
-app.$mount("#app");
+app.$mount("#app", true);
 
 export default app;

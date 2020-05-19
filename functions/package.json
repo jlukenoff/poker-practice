@@ -8,8 +8,7 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "dev:build": "webpack --config webpack.config.js -w",
-    "dev:compile": "tsc -w"
+    "dev:build": "webpack --config webpack.config.js -w"
   },
   "engines": {
     "node": "8"
@@ -23,10 +22,7 @@
     "firebase-functions": "^3.6.0",
     "gql-tag": "^1.0.1",
     "graphql": "^15.0.0",
-    "gsap": "^3.2.6",
-    "vue": "^2.6.11",
-    "vue-apollo": "^3.0.3",
-    "vue-server-renderer": "^2.6.11"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -39,6 +35,7 @@
     "firebase-functions-test": "^0.2.0",
     "node-sass": "^4.14.0",
     "sass-loader": "^8.0.2",
+    "ts-loader": "^7.0.4",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2",
     "vue-loader": "^15.9.2",
