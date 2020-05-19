@@ -3,7 +3,7 @@ lib/**/*.js
 lib/**/*.js.map
 public/**/*.js
 public/**/*.js.map
-dist/
+dist/*
 
 # Typescript v1 declaration files
 typings/
