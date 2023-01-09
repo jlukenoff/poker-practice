@@ -19,8 +19,8 @@
     "apollo-boost": "^0.4.7",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
-    "firebase-admin": "^8.11.0",
-    "firebase-functions": "^3.6.0",
+    "firebase-admin": "^11.4.1",
+    "firebase-functions": "^3.24.1",
     "gql-tag": "^1.0.1",
     "graphql": "^15.0.0",
     "vue": "^2.6.11"
